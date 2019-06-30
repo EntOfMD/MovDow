@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // components
 import notFound from './404';
-
-// assets
-import '../assets/css/App.css';
+import nav from './navbar';
 
 class App extends Component {
     render() {
@@ -14,6 +12,7 @@ class App extends Component {
             <Router>
                 <div>
                     <Switch>
+                        {/* <Route path='/nav' component={nav} /> */}
                         <Route component={notFound} />
                     </Switch>
                 </div>
