@@ -1,35 +1,38 @@
 {
     "name": "movdow",
-    "version": "0.1.0",
-    "private": true,
+    "version": "1.0.0",
+    "description": "movie browser app",
+    "main": "index.js",
+    "scripts": {
+        "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+        "start:prod": "node index.js",
+        "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+        "client": "cd client && npm run start",
+        "install": "cd client && npm install",
+        "build": "cd client && npm run build",
+        "heroku-postbuild": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/EntOfMD/MovDow.git"
+    },
+    "author": "EntOfMD",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/EntOfMD/MovDow/issues"
+    },
+    "homepage": "https://github.com/EntOfMD/MovDow#readme",
+    "devDependencies": {
+        "concurrently": "^4.1.0",
+        "morgan": "^1.9.1"
+    },
     "dependencies": {
         "axios": "^0.19.0",
         "body-parser": "^1.19.0",
-        "cheerio": "^1.0.0-rc.3",
         "dotenv": "^8.0.0",
-        "mongoose": "^5.6.2",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "react-router-dom": "^5.0.1",
-        "react-scripts": "^3.0.1"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "heroku-postbuild": "npm run build"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "express": "^4.17.1",
+        "helmet": "^3.18.0",
+        "if-env": "^1.0.4",
+        "mongoose": "^5.6.3"
     }
 }
